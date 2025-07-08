@@ -1,0 +1,256 @@
+.block-text {
+  padding-block: var(--indent);
+  position: relative;
+
+  &--padding-bottom {
+    padding-block: var(--indent) 0;
+  }
+
+  &--padding-block {
+    padding-block: 0;
+  }
+  &--padding-small {
+    padding-block: var(--indentSmall);
+  }
+  &__title {
+    display: inline-flex;
+    font-weight: 700;
+    margin-block: 0 var(--indent);
+    position: relative;
+    z-index: 1;
+    &::after {
+      top: -50px;
+    }
+    &--big {
+      justify-content: center;
+    }
+    &--width {
+      width: 100%;
+    }
+  }
+
+  &__subtitle {
+    position: relative;
+
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    column-gap: clamp(14px, 1.3vw, 25px);
+
+    margin-block: 0 var(--indentSmall);
+    font-weight: 700;
+
+    &::before {
+      @include square(clamp(44px, 2.8vw, 54px));
+
+      content: "";
+      flex-shrink: 0;
+      align-items: center;
+      background: var(--color-grad-2);
+      border-radius: 50%;
+      left: 0;
+    }
+    &.h5::before {
+      @include square(clamp(28px, 2.8vw, 54px));
+    }
+
+    &--small {
+      &::before {
+        @include square(clamp(30px, 2.29vw, 44px));
+
+        background: var(--color-grad-5);
+      }
+    }
+
+    &--center {
+      justify-content: center;
+    }
+  }
+
+  &__text {
+    position: relative;
+    padding-inline: var(--indentSmall);
+
+    &:not(:last-child) {
+      margin-block: 0 var(--indent);
+    }
+    p:not(:last-child) {
+      margin-block: 0 var(--indent);
+    }
+    &--not-indent {
+      margin-block: 0 !important;
+    }
+
+    @include mobile-media {
+      font-size: 15px;
+      padding-inline: 0;
+    }
+  }
+
+  &__decor-devider {
+    height: clamp(12.5px, 1.25vw, 25px);
+    margin-block: 0 var(--indent);
+    border-radius: var(--border-radius-small);
+
+    &--not-indent {
+      margin-block: 0;
+    }
+  }
+
+  &__table-box {
+    background: var(--color-grad-1);
+    margin-inline: calc(var(--container-padding-x) * -1);
+    padding-inline: var(--container-padding-x);
+    padding-block: var(--indent);
+    margin-block: var(--indent);
+    border-radius: var(--border-radius);
+
+    @include mobile-s-media {
+      padding-block: var(--indentSmall);
+      padding-inline: var(--indentSmall);
+    }
+  }
+
+  &__table {
+    @include fluid-text(24, 9);
+    margin-block: var(--indent);
+
+    thead {
+      font-weight: 500;
+    }
+
+    th {
+      padding: 0 clamp(2px, 0.67vw, 10px) clamp(2px, 0.67vw, 10px);
+      font-weight: 900;
+    }
+
+    td {
+      vertical-align: middle;
+      text-align: center;
+      padding: 0 clamp(2px, 0.67vw, 10px) clamp(2px, 0.67vw, 10px);
+
+      border-bottom: 3px solid var(--color-gray-table-border);
+      &:not(:last-child) {
+        border-right: 3px solid var(--color-gray-table-border);
+      }
+    }
+    @include mobile-s-media {
+      margin-inline: calc(var(--container-padding-x) * -1);
+    }
+
+    &--small {
+      td {
+        vertical-align: middle;
+        @include mobile-media {
+          font-size: 8px;
+        }
+        @include mobile-s-media {
+          border: 0.5px solid var(--color-green-light);
+        }
+      }
+    }
+  }
+
+  ul,
+  ol {
+    margin-block: 0 var(--indent);
+    padding-inline: var(--indentBig);
+
+    li:not(:last-child) {
+      margin-block: 0 var(--indentSmall);
+    }
+
+    @include mobile-media {
+      font-size: 15px;
+      padding-inline: var(--indent);
+    }
+    @include mobile-s-media {
+      font-size: 14px;
+      padding-inline: 0;
+    }
+  }
+}
+// Styles for decor
+.block-text {
+  &__table {
+    thead {
+      position: relative;
+      &::before {
+        @include decor-circle-big(true);
+        @include decor-position-top-right;
+      }
+      &::after {
+        @include decor-circle-color-big;
+        @include decor-position-top-left;
+      }
+    }
+    tbody {
+      position: relative;
+      &::before {
+        @include decor-circle-color-small;
+        @include decor-position-bottom-left;
+      }
+      &::after {
+        @include decor-circle-big;
+        @include decor-position-center;
+      }
+    }
+  }
+
+  &__table-box {
+    position: relative;
+    z-index: -1;
+
+    &::before {
+      @include decor-circle-color-big(true);
+      @include decor-position-top-left;
+    }
+    &::after {
+      @include decor-circle-big;
+      @include decor-position-bottom-right;
+    }
+  }
+
+  &__decor-circle {
+    &--big {
+      @include decor-circle-color-big(true);
+    }
+    &--medium {
+      @include decor-circle-color-big;
+    }
+    &--small {
+      @include decor-circle-color-small;
+    }
+    &--big-color {
+      @include decor-circle-big(true);
+    }
+    &--medium-color {
+      @include decor-circle-big;
+    }
+    &--small-color {
+      @include decor-circle-small;
+    }
+
+    &--right {
+      top: 0;
+      right: 0;
+      translate: -100% 0;
+    }
+
+    &--left {
+      top: 0;
+      left: 0;
+      translate: 100% 0;
+    }
+    &--center {
+      top: 0;
+      left: 50%;
+      translate: -50% -50%;
+    }
+  }
+
+  ul,
+  li {
+    position: relative;
+  }
+}

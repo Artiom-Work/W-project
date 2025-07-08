@@ -1,0 +1,40 @@
+.header {
+  @include fluid-text(54, 22);
+  @include flex-space-between;
+
+  position: relative;
+  column-gap: 10px;
+
+  font-family: var(--font-family-accent);
+  padding-inline: var(--indent);
+  padding-block: var(--indent);
+
+  @include mobile-media {
+    padding-inline: var(--indentSmall);
+    padding-block: var(--indentSmall);
+  }
+
+  &__text {
+    white-space: nowrap;
+
+    &--accent {
+      font-weight: 700;
+    }
+    @include mobile-media {
+      font-size: 16px;
+    }
+    @include mobile-s-media {
+      display: none;
+    }
+  }
+
+  &__decor-image {
+    position: absolute;
+    right: 50px;
+    top: -0.97vw;
+
+    @include desktop-media {
+      right: 2.87vw;
+    }
+  }
+}

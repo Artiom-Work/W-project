@@ -1,0 +1,20 @@
+.section {
+  &__heading {
+    display: flex;
+    align-items: center;
+
+    &-image {
+      margin-right: 22px;
+    }
+
+    &-title {
+      @include fluid-text(27, 20);
+      font-weight: 700;
+    }
+  }
+
+  &__decor-background {
+    background: var(--color-grad-1);
+    height: clamp(25px, 2.81vw, 54px);
+  }
+}

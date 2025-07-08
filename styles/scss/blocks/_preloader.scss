@@ -1,0 +1,12 @@
+.preloader {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  z-index: 10;
+  &__wrapper {
+    @include abs-center;
+
+    width: clamp(150px, 20.8vw, 400px) !important;
+    height: clamp(150px, 20.8vw, 400px) !important;
+  }
+}

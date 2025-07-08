@@ -1,0 +1,18 @@
+.forecast {
+  &__inner {
+    padding-inline: clamp(var(--container-padding-x), 4.73vw, 91px);
+    padding-block: clamp(25px, 3.125vw, 60px) clamp(40px, 8.4vw, 163px);
+
+    @include mobile-media {
+      padding-inline: 10px;
+    }
+    @include mobile-s-media {
+      padding-inline: 3px;
+    }
+  }
+  .forecast__decor-background {
+    &--long {
+      height: clamp(40px, 9.76vw, 125px);
+    }
+  }
+}

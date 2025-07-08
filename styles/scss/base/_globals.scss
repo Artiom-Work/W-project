@@ -1,0 +1,137 @@
+body {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  position: static !important;
+
+  font-family: var(--font-family-base);
+  font-weight: 500;
+  line-height: 1.28;
+  color: var(--color-dark);
+  background-color: var(--color-light);
+  padding-block: 0 var(--menuHeight);
+}
+.body__container {
+  transition: opacity 0.6s ease;
+
+  &.visually-hidden {
+    opacity: 0;
+  }
+}
+.skiptranslate,
+.VIpgJd-ZVi9od-aZ2wEe-wOHMyf {
+  display: none !important;
+}
+
+.content {
+  flex-grow: 1;
+}
+a,
+button,
+input,
+textarea,
+svg * {
+  transition-duration: var(--transition-duration);
+}
+a {
+  text-decoration: none;
+  color: inherit;
+}
+a,
+button {
+  &[aria-label] {
+    position: relative;
+
+    &::after {
+      @include abs-center;
+      @include square(44px);
+
+      content: "";
+    }
+  }
+}
+// titles
+h1,
+h2,
+h3,
+h4 {
+  font-weight: 500;
+}
+.h1,
+.h2,
+.h3,
+.h4 {
+  line-height: 1;
+  margin-block: 0;
+}
+h1,
+.h1 {
+  @include fluid-text(62, 43);
+}
+h2,
+.h2 {
+  @include fluid-text(60, 40);
+}
+h3,
+.h3 {
+  @include fluid-text(50, 24);
+}
+h4,
+.h4 {
+  @include fluid-text(40, 18);
+}
+h5,
+.h5 {
+  @include fluid-text(30, 16);
+}
+
+.accent-text {
+  font-family: var(--font-family-base);
+  font-weight: 700;
+  letter-spacing: -0.06em;
+}
+.bold-text {
+  font-weight: 700;
+}
+.title-big {
+  @include fluid-text(115, 22);
+
+  font-family: var(--font-family-base-accent-light);
+  font-weight: 500;
+  letter-spacing: 0;
+  line-height: 1.53;
+  white-space: nowrap;
+
+  &__accent-text {
+    letter-spacing: -0.04em;
+  }
+}
+.small-divider {
+  width: 40vw;
+  margin-right: auto;
+  margin-left: 0;
+  border: 3px solid var(--color-blue-light);
+  border-radius: var(--border-radius-small);
+
+  &--center {
+    margin-right: auto;
+    margin-left: auto;
+  }
+  &--bottom-indent {
+    margin-bottom: var(--indent);
+  }
+}
+.decor-image {
+  width: clamp(44px, 4.58vw, 88px);
+  height: clamp(55px, 5.7vw, 111px);
+}
+
+.round-icon {
+  &-wrapper {
+    @include square(clamp(44px, 2.8vw, 54px));
+    @include flex-center(true);
+
+    background: var(--color-grad-2);
+    border-radius: 50%;
+  }
+}

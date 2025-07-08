@@ -1,0 +1,33 @@
+// connecting general scss files
+@import "./base/_normolize.scss";
+@import "./base/_fonts.scss";
+@import "./base/_mixins.scss";
+@import "./base/_media.scss";
+@import "./base/_variables.scss";
+@import "./base/_utils.scss";
+@import "./base/_globals.scss";
+@import "./base/_animation.scss";
+//blocks
+@import "./blocks/_viewport-overlay.scss";
+@import "./blocks/_preloader.scss";
+@import "./blocks/_logo.scss";
+@import "./blocks/_header.scss";
+@import "./blocks/_menu.scss";
+@import "./blocks/_section.scss";
+@import "./blocks/_about.scss";
+//aside
+@import "./blocks/_metrics-list.scss";
+@import "./blocks/_referral-system.scss";
+@import "./blocks/_who-uses.scss";
+//end-aside
+@import "./blocks/_global-statistic.scss";
+@import "./blocks/_table.scss";
+@import "./blocks/_calc-table.scss";
+@import "./blocks/_originality.scss";
+@import "./blocks/_numbers.scss";
+@import "./blocks/_forecast.scss";
+@import "./blocks/_invest-indicators.scss";
+@import "./blocks/_preview-galery.scss";
+// styles for the last block with the platform description
+@import "./blocks/_platform-description.scss";
+@import "./blocks/_block-text.scss";

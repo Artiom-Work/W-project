@@ -1,0 +1,195 @@
+.numbers {
+  &__inner {
+    max-width: 1920px;
+    width: 100%;
+    margin-inline: auto;
+    padding-block: 52px 216px;
+    padding-inline: clamp(20px, 5.3vw, 102px) 0;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+
+    @include desktop-media {
+      padding-block: 52px clamp(40px, 9.76vw, 125px);
+    }
+    @media (max-width: 1500px) {
+      padding-inline: 20px;
+    }
+    @include mobile-media {
+      padding-block: 25px 40px;
+    }
+  }
+
+  &__title {
+    @include fluid-text(96, 60);
+    @include flex-center(true);
+
+    padding-inline: clamp(30px, 5.92vw, 131px);
+    min-height: clamp(60px, 13.7vw, 253px);
+    font-family: var(--font-family-second);
+    font-weight: 700;
+    border-radius: var(--border-radius-large);
+    background: var(--color-grad-1);
+    margin-block: 81px 0;
+    letter-spacing: -0.03em;
+
+    @include tablet-media {
+      grid-area: heading;
+      max-width: 650px;
+      width: 100%;
+      margin-inline: auto;
+      margin-block: unset;
+    }
+    @include mobile-media {
+      font-size: 40px;
+      max-width: clamp(279px, 59vw, 450px);
+    }
+    @include mobile-s-media {
+      font-size: 35px;
+    }
+  }
+
+  &__top-tables-group {
+    display: flex;
+    align-items: start;
+    justify-content: space-between;
+
+    gap: 20px;
+    max-width: 1800px;
+    width: 100%;
+
+    @media (max-width: 1500px) {
+      max-width: 100%;
+    }
+    @include tablet-media {
+      display: grid;
+      grid-template-rows: auto 1fr;
+      grid-template-columns: 1fr 1fr;
+      grid-template-areas:
+        "heading heading"
+        "readiness metrics";
+    }
+
+    @include mobile-media {
+      max-width: clamp(300px, 81.3vw, 550px);
+      grid-template-rows: repeat(3, auto);
+      grid-template-columns: 1fr;
+      grid-template-areas:
+        "heading"
+        "readiness"
+        "metrics";
+    }
+    .table__title {
+      text-align: start;
+      letter-spacing: -0.07em;
+
+      @include tablet-media {
+        text-align: center;
+      }
+    }
+  }
+
+  &__table {
+    &--readiness {
+      @include fluid-text(26, 20);
+
+      letter-spacing: -0.05em;
+
+      @media (max-width: 1500px) {
+        order: -1;
+      }
+      @include tablet-media {
+        grid-area: readiness;
+      }
+      th,
+      td {
+        padding: 10px 7px 8px 19px;
+
+        @include tablet-media {
+          height: clamp(40px, 5vw, 77px);
+        }
+        @include mobile-media {
+          font-size: clamp(15px, 2.6vw, 20px);
+        }
+      }
+
+      .table__row {
+        & td:first-child {
+          font-weight: 500;
+        }
+
+        & td:last-child {
+          font-weight: 800;
+        }
+      }
+    }
+
+    &--metrics {
+      @include fluid-text(33, 20);
+
+      @include tablet-media {
+        grid-area: metrics;
+      }
+
+      th,
+      td {
+        padding: 20px 20px 14px 20px;
+        line-height: 1;
+
+        @include tablet-media {
+          height: clamp(40px, 5vw, 77px);
+        }
+        @include mobile-media {
+          padding: 10px 7px 8px 19px;
+          font-size: clamp(15px, 2.6vw, 20px);
+        }
+      }
+    }
+
+    &--income-sources {
+      th,
+      td {
+        padding: 12px 15px 11px 20px;
+        letter-spacing: -0.03em;
+
+        @include mobile-media {
+          font-size: clamp(12px, 2.6vw, 20px);
+          padding: 10px 7px 8px 19px;
+          height: clamp(60px, 10.8vw, 83px);
+        }
+        @include mobile-s-media {
+          padding: 5px;
+          text-align: center;
+        }
+      }
+    }
+  }
+
+  &__table-title {
+    &--readiness {
+      margin-block: 0 clamp(15px, 1.82vw, 35px);
+
+      @include tablet-media {
+        margin-block: 0 clamp(15px, 1.5vw, 27px);
+      }
+    }
+    &--metrics {
+      margin-block: 0 clamp(15px, 1.5vw, 27px);
+    }
+    &--income-sources {
+      font-size: 30px;
+      letter-spacing: -0.01em;
+      margin-block: 0 clamp(15px, 1.71vw, 32px);
+
+      @include tablet-media {
+        font-size: clamp(20px, 2.34vw, 30px);
+      }
+    }
+  }
+
+  &__decor-background {
+    height: clamp(40px, 9.76vw, 125px);
+  }
+}

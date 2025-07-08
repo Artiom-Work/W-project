@@ -1,0 +1,109 @@
+.originality {
+  &__inner {
+    padding-block: clamp(25px, 3.8vw, 75px) clamp(25px, 4vw, 82px);
+    @include mobile-media {
+      padding-inline: 10px;
+    }
+  }
+
+  &__table {
+    @include fluid-text(31, 18);
+
+    max-width: 1455px;
+    width: 100%;
+    margin-inline: auto;
+    margin-block: 0 clamp(20px, 2.6vw, 50px);
+
+    td,
+    th {
+      @media (max-width: 1000px) {
+        height: 76px;
+        text-align: center;
+      }
+      @include mobile-s-media {
+        font-size: 12px;
+        height: 60px;
+      }
+    }
+    &-title {
+      font-weight: 500;
+    }
+
+    &-row {
+      & td:first-child {
+        @include mobile-s-media {
+          font-size: 12px;
+        }
+      }
+      &--head {
+        th {
+          @include mobile-s-media {
+            font-size: 16px;
+          }
+        }
+      }
+    }
+  }
+
+  &__form {
+    --formButtonWidth: 100px;
+    --formHeight: 55px;
+
+    box-shadow: var(--box-shadow-2);
+    font-family: var(--font-family-second);
+    position: relative;
+    max-width: 320px;
+    min-height: var(--formHeight);
+    margin-inline: auto;
+    border-radius: var(--border-radius-large);
+
+    @include mobile-s-media {
+      --formHeight: 44px;
+      --formButtonWidth: 90px;
+
+      max-width: 280px;
+    }
+  }
+
+  &__input {
+    border-radius: inherit;
+    width: 100%;
+    outline: transparent;
+    border: transparent;
+    height: var(--formHeight);
+
+    padding: 10px calc(var(--formButtonWidth) + 20px) 10px 20px;
+
+    &:focus {
+      background-color: var(--color-green-extra-light);
+    }
+    @include hover {
+      background-color: var(--color-green-extra-light);
+    }
+  }
+
+  &__button {
+    position: absolute;
+    right: 0;
+    top: 0;
+
+    width: var(--formButtonWidth);
+    height: 100%;
+    border: none;
+    border-radius: 0 var(--border-radius-large) var(--border-radius-large) 0;
+    background: var(--color-grad-1);
+    font-weight: 900;
+    color: var(--color-light);
+
+    @include hover {
+      color: var(--color-dark);
+    }
+    @include active {
+      transform: scale(1.05);
+    }
+  }
+
+  &__decor-background {
+    height: clamp(25px, 2.81vw, 54px);
+  }
+}

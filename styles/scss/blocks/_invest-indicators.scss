@@ -1,0 +1,22 @@
+.invest-indicators {
+  &__inner {
+    padding-inline: clamp(var(--container-padding-x), 4.73vw, 91px);
+    padding-block: clamp(40px, 8.4vw, 163px);
+
+    @include mobile-media {
+      padding-inline: 10px;
+    }
+    @include mobile-s-media {
+      padding-inline: 3px;
+    }
+  }
+
+  &__table {
+    &:not(:last-child) {
+      margin-block: 0 clamp(20px, 2.4vw, 46px);
+    }
+  }
+  &__decor-background {
+    height: clamp(40px, 9.76vw, 125px);
+  }
+}

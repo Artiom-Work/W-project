@@ -1,0 +1,25 @@
+@keyframes fadeIn {
+  from {
+    backdrop-filter: blur(0px);
+    opacity: 0;
+    visibility: visible;
+  }
+  to {
+    backdrop-filter: blur(6px);
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    backdrop-filter: blur(6px);
+    opacity: 1;
+    visibility: visible;
+  }
+  to {
+    backdrop-filter: blur(0px);
+    opacity: 0;
+    visibility: hidden;
+  }
+}

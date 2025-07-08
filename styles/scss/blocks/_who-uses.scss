@@ -1,0 +1,151 @@
+.who-uses {
+  position: absolute;
+  z-index: 1;
+  right: 15px;
+  top: -32%;
+
+  max-width: 648px;
+  width: 100%;
+  padding: 38px 20px 33px 32px;
+  border-radius: var(--border-radius-medium);
+  background-color: var(--color-blue-extra-light);
+
+  @include desktop-media {
+    width: unset;
+    padding: 38px 32px 33px 32px;
+  }
+
+  @include tablet-media {
+    padding: 20px;
+  }
+
+  @include mobile-media {
+    position: relative;
+    right: unset;
+    top: unset;
+    max-width: 450px;
+    margin-inline: auto;
+    margin-block: calc(var(--whoUsesMagrinTopMobile) * -1) 20px;
+  }
+
+  @include mobile-s-media {
+    padding: 10px;
+  }
+
+  &__heading {
+    margin-block: 0 40px;
+    padding-inline: 14px 0;
+
+    @include tablet-media {
+      margin-block: 0 15px;
+    }
+  }
+
+  &__title {
+    @include fluid-text(24, 18);
+
+    font-family: var(--font-family-base-accent-light);
+    font-weight: 500;
+    text-transform: uppercase;
+
+    &-icon {
+      width: clamp(22px, 2vw, 26px);
+      aspect-ratio: 1;
+    }
+  }
+
+  &__body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 31px;
+
+    @include tablet-media {
+      row-gap: 15px;
+    }
+  }
+
+  &__referral-system {
+    align-self: self-start;
+  }
+}
+// Block with round graph
+.who-uses__graph {
+  --graphValue-1: var(--value-1);
+  --graphValue-2: var(--value-2);
+  --graphValue-3: var(--value-3);
+  --graphValue-4: var(--value-4);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+
+  @include tablet-media {
+    gap: 20px;
+  }
+
+  @include mobile-s-media {
+    gap: 15px;
+  }
+  // Drawing the graph
+  &-image {
+    position: relative;
+    width: 174px;
+    aspect-ratio: 1;
+
+    @include tablet-media {
+      width: clamp(120px, 13.6vw, 174px);
+    }
+
+    &::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: conic-gradient(
+        var(--color-green-light) 0 calc(var(--graphValue-1) * 1%),
+        var(--color-green) 0
+          calc(calc(var(--graphValue-1) + var(--graphValue-2)) * 1%),
+        var(--color-blue) 0
+          calc(
+            calc(
+                var(--graphValue-1) + var(--graphValue-2) + var(--graphValue-3)
+              ) * 1%
+          ),
+        var(--color-violet) 0 100%
+      );
+      mask: radial-gradient(
+        circle at center,
+        transparent calc(48% - 0.1px),
+        #000 48% 70%,
+        transparent calc(70% + 0.1px)
+      );
+    }
+  }
+
+  &-image-value {
+    @include flex-center;
+
+    position: absolute;
+    z-index: 0;
+    left: 50%;
+    top: 50%;
+    font-weight: 700;
+    font-size: 12px;
+    padding: 5px 10px;
+    border-radius: var(--border-radius-small);
+    background-color: var(--color-light);
+
+    @include tablet-media {
+      padding: 5px;
+    }
+
+    @include mobile-media {
+      padding: 2px;
+    }
+
+    &::before {
+      content: attr(data-value) "%";
+    }
+  }
+}

@@ -1,0 +1,30 @@
+.logo {
+  @include flex-space-between;
+
+  font-weight: 500;
+  column-gap: 10px;
+  max-width: clamp(210px, 24.4vw, 470px);
+  width: 100%;
+  background: var(--color-grad-1);
+  padding-inline: var(--indentSmall) var(--indent);
+  padding-block: var(--indentSmall);
+  border-radius: var(--border-radius-large);
+
+  line-height: 0.9;
+
+  @include hover {
+    color: var(--color-light);
+    filter: brightness(90%);
+  }
+  @include active {
+    .logo__image {
+      scale: 0.9;
+    }
+  }
+
+  &__image {
+    @include square(clamp(44px, 5.2vw, 100px));
+
+    transition-duration: var(--transition-duration);
+  }
+}

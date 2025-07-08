@@ -1,0 +1,216 @@
+.platform-description {
+  @include fluid-text(24, 16);
+
+  font-family: var(--font-family-alternate);
+  font-weight: 400;
+  line-height: 1.27;
+  @include desktop-media {
+    p {
+      --paragraphMarginBottom: 25px;
+    }
+  }
+
+  @include tablet-media {
+    p {
+      --paragraphMarginBottom: 20px;
+    }
+  }
+
+  @include mobile-media {
+    p {
+      --paragraphMarginBottom: 15px;
+    }
+  }
+
+  &__heading {
+    position: relative;
+    border-radius: var(--border-radius);
+    background: var(--color-grad-1);
+    padding-block: var(--indentBig);
+
+    &--center {
+      padding-block: var(--indent);
+      padding-inline: var(--container-padding-x);
+      margin-block: 0 var(--indent);
+      margin-inline: calc(var(--container-padding-x) * -1);
+
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+  }
+
+  &__title {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    position: relative;
+    margin-inline: auto;
+    margin-block: 0 var(--indent);
+    font-weight: 900;
+    max-width: clamp(300px, 26.04vw, 550px);
+    width: 100%;
+
+    &--big {
+      @include fluid-text(45, 26);
+
+      max-width: clamp(300px, 62vw, 1200px);
+    }
+    &--margin {
+      margin-block: 0;
+    }
+    &--medium {
+      max-width: 1200px;
+      width: 100%;
+      margin-block: var(--indent);
+
+      &::after {
+        @include decor-circle-big;
+        @include decor-position-center;
+      }
+    }
+  }
+
+  &__main-desc {
+    position: relative;
+    z-index: 1;
+    @include fluid-text(30, 20);
+
+    &--small {
+      @include fluid-text(26, 18);
+    }
+    @include mobile-s-media {
+      font-size: 16px;
+    }
+  }
+
+  &__table {
+    @include fluid-text(24, 16);
+
+    margin-inline: auto;
+    margin-block: 0 var(--indent);
+
+    @include mobile-s-media {
+      font-size: 12px;
+    }
+    caption {
+      font-family: var(--font-family-alternate);
+    }
+    th,
+    td {
+      padding-inline: clamp(10px, 1.04vw, 20px);
+      text-align: center;
+
+      @include mobile-s-media {
+        padding-inline: 3px;
+      }
+    }
+    td {
+      background: var(--color-light);
+    }
+    &--small-text {
+      @include fluid-text(26, 12);
+
+      @include mobile-media {
+        font-size: 12px;
+        margin-inline: calc(var(--container-padding-x) * -1);
+      }
+      @include mobile-s-media {
+        font-size: 10px;
+        margin-inline: calc(var(--indentSmall) * -1);
+      }
+    }
+
+    &--medium-text {
+      @include fluid-text(26, 14);
+
+      @include mobile-media {
+        font-size: 13px;
+        margin-inline: calc(var(--container-padding-x) * -1);
+      }
+    }
+
+    &--small {
+      @include fluid-text(26, 16);
+      max-width: 850px;
+      width: 100%;
+
+      @include mobile-s-media {
+        font-size: 12px;
+      }
+    }
+  }
+
+  &__decor-image {
+    position: absolute;
+    left: 0;
+    rotate: 90deg;
+
+    &--right {
+      left: unset;
+      right: 0;
+      rotate: unset;
+    }
+    &--rotate {
+      rotate: 90deg;
+    }
+    &--top {
+      top: -50%;
+    }
+    &--table-block {
+      left: unset;
+      right: 0;
+      top: -30px;
+      margin-right: 20px;
+    }
+  }
+}
+
+// Styles for decor
+.platform-description {
+  &__title {
+    &:first-child {
+      &::after {
+        @include decor-circle-color-big;
+        @include decor-position-top-right;
+        translate: 25% -50%;
+      }
+    }
+    &--medium {
+      &::after {
+        @include decor-circle-color-big;
+        @include decor-position-center;
+      }
+    }
+  }
+
+  &__main-desc {
+    &::before {
+      @include decor-circle-color-big(true);
+      @include decor-position-top-left;
+    }
+    &::after {
+      @include decor-circle-color-small;
+      @include decor-position-bottom-right;
+    }
+  }
+
+  &__heading {
+    &--center {
+      position: relative;
+      z-index: 1;
+      &::before {
+        @include decor-circle-color-big(true);
+        @include decor-position-bottom-left;
+
+        z-index: 0;
+      }
+      &::after {
+        @include decor-circle-small;
+        @include decor-position-center;
+
+        translate: 200% -20px;
+      }
+    }
+  }
+}
